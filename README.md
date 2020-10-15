@@ -22,7 +22,7 @@ Prefered application and version controlled system.
 To contribute clone from the repo.
 You can also fork or download from the repo, if you prefer to view or edit this in your own space.
 
-[![HitCount](https://img.shields.io/github/search/kaidong-chr/HW3_Password_Generator/search)](https://img.shields.io/github/search/kaidong-chr/HW3_Password_Generator/})
+[![HitCount](https://img.shields.io/github/search/https://kaidong-chr.github.io/HW3_Password_Generator/search)](https://img.shields.io/github/search/https://kaidong-chr.github.io/HW3_Password_Generator/})
 
 ### Credits
 
