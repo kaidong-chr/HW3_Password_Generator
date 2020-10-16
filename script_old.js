@@ -19,13 +19,11 @@ function generatePassword() {
   let pwLength = parseInt(
     prompt("Enter the length of the password, must be 8 to 128 characters.")
   );
-  // 1.5 If the user chooses length out side of range, promp the user to try again.
+    // 1.5 If the user chooses length out side of range, promp the user to try again.
   while (pwLength < 9 || pwLength > 129) {
     alert("password must be between 8 to 128 characters");
     pwLength = parseInt(
-      prompt(
-        "Please enter the length of the password, must be 8 to 128 characters."
-      )
+      prompt("Please enter the length of the password, must be 8 to 128 characters.")
     );
   }
 
@@ -44,52 +42,32 @@ function generatePassword() {
   // Used to store final built password
   let finalPassword = "";
 
+  // Arrays for building the password
+  let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  let spChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+  let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   // Depending on user choice, store in this array
   let storedUserPassword = [];
-
-  // Used charset to generate alphabet and special characters - https://www.w3schools.com/html/html_charset.asp
-  let functions = {
-    // Generate random upper case alphabet
-    randomUpper: function () {
-      return String.fromCharCode(...Array(91).keys()).slice(65);
-    },
-
-    // Generate random lower case alphabet
-    randomLower: function () {
-      return String.fromCharCode(...Array(123).keys()).slice(97);
-    },
-
-    // Generate random numbers 0 - 9
-    randomNumber: function () {
-      return String.fromCharCode(...Array(58).keys()).slice(48);
-    },
-
-    // Generate special characters
-    randomChar: function () {
-      return String.fromCharCode(...Array(48).keys()).slice(33);
-    },
-  };
-
-  // Depending on users choice, function runs, then we populate the storeUserPassword empty array.
+  
+  // Depending on user selection, update storedUserPassword array
   if (upperCase == true) {
-    storedUserPassword.push(...functions.randomUpper());
+    storedUserPassword.push(...upperAlpha);
   }
   if (lowerCase == true) {
-    storedUserPassword.push(...functions.randomLower());
+    storedUserPassword.push(...lowerAlpha);
   }
   if (number == true) {
-    storedUserPassword.push(...functions.randomNumber());
+    storedUserPassword.push(...num);
   }
   if (spChar == true) {
-    storedUserPassword.push(...functions.randomChar());
+    storedUserPassword.push(...spChars);
   }
-
-  // // Logging to console to test functions
-  // console.log(functions.randomUpper())
 
   console.log(storedUserPassword);
 
-  // Use a for loop and take the users chosen length and you iterate for that length
+  // Use a for loop and take the users chosen length and build the password
   for (let i = 0; i < pwLength; i++) {
     finalPassword +=
       storedUserPassword[Math.floor(Math.random() * storedUserPassword.length)];
