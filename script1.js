@@ -50,10 +50,10 @@ function generatePassword() {
   let finalPassword = "";
 
   // Arrays for building the password
-  let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  let spChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
-  let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  // let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  // let spChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+  // let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   // // Logging to console to test functions
   // console.log(functions.randomUpper())
@@ -61,62 +61,64 @@ function generatePassword() {
   // Depending on user choice, store in this array
   let storedUserPassword = [];
   
-  // Will mess with it later, didn't work quite as intended
-  // // Used charset to generate alphabet and special characters - https://www.w3schools.com/html/html_charset.asp
-  // let functions = {
-  //   // Generate random upper case alphabet
-  //   randomUpper: function () {
-  //     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  //   },
 
-  //   // Generate random lower case alphabet
-  //   randomLower: function () {
-  //     return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  //   },
+  // Used charset to generate alphabet and special characters - https://www.w3schools.com/html/html_charset.asp
+  let functions = {
+    // Generate random upper case alphabet
+    randomUpper: function () {
+      return String.fromCharCode(...Array(91).keys()).slice(65);
+    },
 
-  //   // Generate random numbers 0 - 9
-  //   randomNumber: function () {
-  //     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  //   },
+    // Generate random lower case alphabet
+    randomLower: function () {
+      return String.fromCharCode(...Array(123).keys()).slice(97);
+    },
 
-  //   // Generate special characters
-  //   randomChar: function () {
-  //     const char = "!@#$%^&*(){}[]=<>/,.";
-  //     return char[Math.floor(Math.random() * char.length)];
-  //   },
-  // };
+    // Generate random numbers 0 - 9
+    randomNumber: function () {
+      return String.fromCharCode(...Array(58).keys()).slice(48);
+    },
 
-  // // Depending on users choice, function runs.
-  // if (upperCase == true) {
-  //   storedUserPassword.push(functions.randomUpper());
-  // }
-  // if (lowerCase == true) {
-  //   storedUserPassword.push(functions.randomLower());
-  // }
-  // if (number == true) {
-  //   storedUserPassword.push(functions.randomNumber());
-  // }
-  // if (spChar == true) {
-  //   storedUserPassword.push(functions.randomChar());
-  // }
-  
-  // Depending on user selection, update storedUserPassword array
+    // Generate special characters
+    randomChar: function () {
+      const char = "!@#$%^&*(){}[]=<>/,.";
+      return string.(...char.slice(0));
+    },
+  };
+
+  console.log(randomChar())
+
+  // Depending on users choice, function runs, then we populate the storeUserPassword empty array.
   if (upperCase == true) {
-    storedUserPassword.push(...upperAlpha);
+    storedUserPassword.push(...functions.randomUpper());
   }
   if (lowerCase == true) {
-    storedUserPassword.push(...lowerAlpha);
+    storedUserPassword.push(...functions.randomLower());
   }
   if (number == true) {
-    storedUserPassword.push(...num);
+    storedUserPassword.push(...functions.randomNumber());
   }
   if (spChar == true) {
-    storedUserPassword.push(...spChars);
+    storedUserPassword.push(...functions.randomChar());
   }
+  
+  // // Depending on user selection, update storedUserPassword array
+  // if (upperCase == true) {
+  //   storedUserPassword.push(...upperAlpha);
+  // }
+  // if (lowerCase == true) {
+  //   storedUserPassword.push(...lowerAlpha);
+  // }
+  // if (number == true) {
+  //   storedUserPassword.push(...num);
+  // }
+  // if (spChar == true) {
+  //   storedUserPassword.push(...spChars);
+  // }
 
   console.log(storedUserPassword);
 
-  // Use a for loop and take the users chosen length and build the password
+  // Use a for loop and take the users chosen length and you iterate for that length
   for (let i = 0; i < pwLength; i++) {
     finalPassword +=
       storedUserPassword[Math.floor(Math.random() * storedUserPassword.length)];
