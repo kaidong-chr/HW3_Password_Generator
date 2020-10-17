@@ -47,7 +47,7 @@ function generatePassword() {
   // Depending on user choice, store in this array
   let storedUserPassword = [];
 
-  // Used charset to generate alphabet and special characters - https://www.w3schools.com/html/html_charset.asp
+  // Used charset as the source for alphabet, numbers and special characters - https://www.w3schools.com/html/html_charset.asp
   let functions = {
     // Generate random upper case alphabet
     randomUpper: function () {
@@ -70,7 +70,7 @@ function generatePassword() {
     },
   };
 
-  // Depending on users choice, function runs, then we populate the storeUserPassword empty array.
+  // Depending on users choice, function runs, then we populate the storeUserPassword array.
   if (upperCase == true) {
     storedUserPassword.push(...functions.randomUpper());
   }
