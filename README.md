@@ -1,7 +1,7 @@
 # Password Generator
 
 ### Overview
-Utilizing the already given HTML, CSS and JS files, make a random password generator that features password length, options to include or exclude uppercase, lowercase alphabet, number and special character using JavaScript.
+Utilizing already given HTML, CSS and JS files, make a random password generator that features password length, options to include or exclude uppercase, lowercase alphabet, number and special character using JavaScript.
 
 ### Implementation
 * Created prompts for user selection.
@@ -15,6 +15,7 @@ Utilizing the already given HTML, CSS and JS files, make a random password gener
 
 ### Screenshots
 Password length result at length of 22 with all options selected.
+<br>
 <br>
 At 992px
 ![Image](./assets/Images/pwgen_992.png "Password Generator 992")
