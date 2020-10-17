@@ -5,7 +5,7 @@ Utilizing already given HTML, CSS and JS files, make a random password generator
 
 ### Implementation
 * Created prompts for user selection.
-* Error handling for user prompt and also able to parseInt.
+* Error handling for user prompt when required length is outside of range.
 * Used charset as the source for alphabet, numbers and special characters.
 * Functions to pass in the variables from the charset source.
 * If conditions depending on the user's choice.
